@@ -85,6 +85,7 @@
             // ExitButton
             // 
             this.ExitButton.BackColor = System.Drawing.SystemColors.Desktop;
+            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ExitButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.Font = new System.Drawing.Font("Calisto MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,6 +116,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.SearchQuoteButton);

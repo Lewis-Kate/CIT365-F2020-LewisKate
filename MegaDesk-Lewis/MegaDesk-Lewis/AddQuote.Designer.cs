@@ -177,6 +177,7 @@
             // 
             this.QuoteButton.AutoSize = true;
             this.QuoteButton.BackColor = System.Drawing.Color.Black;
+            this.QuoteButton.Enabled = false;
             this.QuoteButton.Font = new System.Drawing.Font("Calisto MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuoteButton.ForeColor = System.Drawing.Color.SpringGreen;
             this.QuoteButton.Location = new System.Drawing.Point(85, 386);
@@ -216,6 +217,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(596, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.MaterialComboBox);
             this.Controls.Add(this.Date);
             this.Controls.Add(this.QuoteButton);

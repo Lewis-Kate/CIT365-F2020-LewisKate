@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace MegaDesk_Lewis
@@ -137,13 +132,7 @@ namespace MegaDesk_Lewis
 
         }
 
-        private void QuoteButton_Click(object sender, EventArgs e)
-        {
-            SearchQuotes viewSearchQuotes = new SearchQuotes();
-            viewSearchQuotes.Tag = this;
-            viewSearchQuotes.Show(this);
-            Hide();
-        }
+        
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
@@ -152,11 +141,20 @@ namespace MegaDesk_Lewis
             Close();
         }
 
+        private void QuoteButton_Click(object sender, EventArgs e)
+        {
+            DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
+            viewDisplayQuote.Show();
+            Close();
+        }
 
         private void Date_Click(object sender, EventArgs e)
         {
-            string today = DateTime.Now.ToString("dd-MM-yyyy");
-            Console.WriteLine(today);
+
+            DateTime d = new DateTime();
+            d = DateTime.Now;
+
+            Date.Text = d.ToString("dd.MM.yyyy");
         }
 
         public enum desktopMaterials
@@ -180,6 +178,8 @@ namespace MegaDesk_Lewis
         {
             MaterialComboBox.DataSource = Enum.GetNames(typeof(desktopMaterials));
         }
+
+        
     }
 
 }
