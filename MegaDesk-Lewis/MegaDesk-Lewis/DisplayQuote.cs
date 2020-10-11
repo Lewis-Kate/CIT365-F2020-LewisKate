@@ -12,11 +12,20 @@ namespace MegaDesk_Lewis
 {
     public partial class DisplayQuote : Form
     {
+
+
         public DisplayQuote()
         {
             InitializeComponent();
         }
 
-        
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
+        }
     }
-}
+
+    }
+

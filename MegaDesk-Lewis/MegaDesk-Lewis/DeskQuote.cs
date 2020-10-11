@@ -108,94 +108,9 @@ namespace MegaDesk_Lewis
                 return extraCarges;
             }
 
-            public List<DeskQuote> readJSONFile(string file)
-            {
-                StreamReader sr = new StreamReader(file);
-                List<DeskQuote> deskQuotes = new List<DeskQuote>();
-                string JSONString;
+            
 
-                try
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        JSONString = sr.ReadLine();
-                        DeskQuote deskQuote = new DeskQuote();
-                      //  deskQuote = JsonConvert.DeserializeObject<DeskQuote>(JSONString);
-                        deskQuotes.Add(deskQuote);
-                    }
-                }
-                catch (IOException e)
-                {
-                    System.Windows.Forms.MessageBox.Show("There was a problem trying to read the file" + e);
-                }
-
-                sr.Close();
-                return deskQuotes;
-            }
-
-            public void writeJSONFile(string file, AddQuote addQuote)
-            {
-                desk = new Desk();
-
-                desk.width = addQuote.getDeskWidth();
-                desk.depth = addQuote.getDeskDepth();
-                desk.size = addQuote.getDeskDepth() * addQuote.getDeskWidth();
-                desk.drawers = addQuote.getDeskDrawers();
-                desk.material = addQuote.getMaterial();
-
-                this.clientName = addQuote.getClientName();
-                this.rushDays = addQuote.getRushDays();
-
-                this.calculatePrice(desk, addQuote);
-               
-
-                try
-                {
-                    StreamWriter sw = new StreamWriter(file, append: true);
-                   sw.Close();
-                }
-                catch (IOException e)
-                {
-
-                }
-            }
-
-            public List<DeskQuote> searchQuotes(string file, string searchBy, SearchQuotes searchAllQuotes)
-            {
-                StreamReader sr = new StreamReader(file);
-                List<DeskQuote> deskQuotes = new List<DeskQuote>();
-                string JSONString;
-
-                try
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        JSONString = sr.ReadLine();
-                        DeskQuote deskQuote = new DeskQuote();
-                    
-                        if (searchAllQuotes.getSearchBy().Equals("Client"))
-                        {
-                            if (searchAllQuotes.getCriteria() == deskQuote.clientName)
-                            {
-                                deskQuotes.Add(deskQuote);
-                            }
-                        }
-                        else if (searchAllQuotes.getSearchBy().Equals("Material"))
-                        {
-                            if (searchAllQuotes.getCriteria() == deskQuote.desk.material)
-                            {
-                                deskQuotes.Add(deskQuote);
-                            }
-                        }
-                    }
-                }
-                catch (IOException e)
-                {
-                    System.Windows.Forms.MessageBox.Show("There was a problem trying to read the file" + e);
-                }
-                sr.Close();
-                return deskQuotes;
-            }
+           
         }
     }
 

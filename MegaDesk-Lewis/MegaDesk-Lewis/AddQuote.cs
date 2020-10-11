@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
-
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MegaDesk_Lewis
@@ -45,37 +45,37 @@ namespace MegaDesk_Lewis
 
         public int getDeskWidth()
         {
-            return Convert.ToInt32(this.DeskWidth.Text);
+            return Convert.ToInt32(this.DeskWidthLabel.Text);
         }
 
         public int getDeskDepth()
         {
-            return Convert.ToInt32(this.DeskDepth.Text);
+            return Convert.ToInt32(this.DeskDepthLabel.Text);
         }
 
         public int getDeskDrawers()
         {
-            return Convert.ToInt32(this.DeskDrawers.Text);
+            return Convert.ToInt32(this.DeskDrawersLabel.Text);
         }
 
         public String getClientName()
         {
-            return this.ClientName.Text;
+            return this.NameLabel.Text;
         }
 
         public int getRushDays()
         {
-            return Convert.ToInt32(this.RushDays.Text);
+            return Convert.ToInt32(this.ShippingLabel.Text);
         }
 
         public string getMaterial()
         {
-            return this.Material.Text;
+            return this.MaterialLabel.Text;
         }
 
         public bool checkWidth()
         {
-            int width = Convert.ToInt32(this.DeskWidth.Text);
+            int width = Convert.ToInt32(this.DeskWidthLabel.Text);
 
             if (width < MIN_WITH || width > MAX_WITH)
             {
@@ -91,7 +91,7 @@ namespace MegaDesk_Lewis
 
         public bool checkDepth()
         {
-            int depth = Convert.ToInt32(this.DeskDepth.Text);
+            int depth = Convert.ToInt32(this.DeskDepthLabel.Text);
 
             if (depth < MIN_DEPTH || depth > MAX_DEPTH)
             {
@@ -114,7 +114,7 @@ namespace MegaDesk_Lewis
             if (!result)
             {
                 e.Cancel = true;
-                DeskWidth.Select();
+                DeskWidthLabel.Select();
                 System.Windows.Forms.MessageBox.Show(errorMessage);
             }
         }
@@ -126,13 +126,13 @@ namespace MegaDesk_Lewis
 
             if (!result)
             {
-                DeskWidth.Select();
+                DeskWidthLabel.Select();
                 System.Windows.Forms.MessageBox.Show(errorMessage);
             }
 
         }
 
-        
+
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
@@ -143,9 +143,12 @@ namespace MegaDesk_Lewis
 
         private void QuoteButton_Click(object sender, EventArgs e)
         {
-            DisplayQuote viewDisplayQuote = (DisplayQuote)Tag;
+
+
+            DisplayQuote viewDisplayQuote = new DisplayQuote();
             viewDisplayQuote.Show();
-            Close();
+            Hide();
+
         }
 
         private void Date_Click(object sender, EventArgs e)
@@ -166,20 +169,20 @@ namespace MegaDesk_Lewis
             Veneer = 150
         }
 
-       
 
-        private void DrawersUpDown_ValueChanged(object sender, EventArgs e)
+
+        private void DeskDrawers_ValueChanged(object sender, EventArgs e)
         {
-            DrawersUpDown.Maximum = 7;
-            DrawersUpDown.Minimum = 0;
+            DeskDrawers.Maximum = 7;
+            DeskDrawers.Minimum = 0;
         }
 
-        private void MaterialComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Material_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MaterialComboBox.DataSource = Enum.GetNames(typeof(desktopMaterials));
+        var listOfEnums = Enum.GetValues(typeof(desktopMaterials)).Cast<desktopMaterials>().ToList();
+        Material.DataSource = listOfEnums;
         }
 
-        
     }
 
 }
