@@ -26,8 +26,8 @@ namespace ContosoUniversity.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LastName = table.Column<string>(nullable: true),
-                    FirstMidName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(maxLength: 50, nullable: true),
+                    FirstMidName = table.Column<string>(maxLength: 50, nullable: true),
                     EnrollmentDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

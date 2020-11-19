@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20201119035537_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201119041728_MaxLengthOnNames")]
+    partial class MaxLengthOnNames
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,10 +73,12 @@ namespace ContosoUniversity.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstMidName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("ID");
 
