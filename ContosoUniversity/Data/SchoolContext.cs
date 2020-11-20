@@ -1,5 +1,6 @@
 ﻿using ContosoUniversity.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace ContosoUniversity.Data
 {
@@ -22,12 +23,13 @@ namespace ContosoUniversity.Data
         {
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
-            modelBuilder.Entity<Student>().ToTable("Student");
+            //modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Department>().ToTable("Department");
-            modelBuilder.Entity<Instructor>().ToTable("Instructor");
+            //modelBuilder.Entity<Instructor>().ToTable("Instructor");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
             modelBuilder.Entity<CourseAssignment>().ToTable("CourseAssignment");
             modelBuilder.Entity<Person>().ToTable("Person");
+
 
             modelBuilder.Entity<CourseAssignment>()
                 .HasKey(c => new { c.CourseID, c.InstructorID });
