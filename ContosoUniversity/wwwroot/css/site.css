@@ -6,13 +6,35 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
     font-family: 'Graduate', cursive;
+ }
+
+.nav {
+    background-color: #028a0f;
+    text-align: center;
+    margin-bottom: 2em;
 }
+
+.nav a{
+    margin-right: 10px;
+}
+
+    .nav a:hover {
+        text-decoration: line-through;
+        color: #142044;
+    }
+
+ 
 
 /* Provide sufficient contrast against white background */
 a {
-    color: #0366d6;
+    color: #00ff00;
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+    a:hover {
+        text-decoration: line-through;
+        color: #028a0f;
+    }
 
 .btn-primary {
   color: #fff;
@@ -57,23 +79,29 @@ button.accept-policy {
 -------------------------------------------------- */
 .jumbotron h1 {
     font-size: 5em;
-    color: darkgreen;    
-  }
+    color: #142044;
+}
 
 .jumbotron {
-    background-color: #FFFAF1;
+    background-color: #a9a9a9;
     text-align: center;
    }
 
 h1, h2 {
     font-family: 'Graduate', cursive;
     font-size: 1.3em;
-    color: #D0f0c0;
+    color: #028a0f;
+}
+
+h4 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.1em;
+    color: #028a0f;
 }
 
 p {
     font-family: 'Noto Sans JP', sans-serif;
-    color: #FFFAF1;
+    color: #a9a9a9;
 }
 
 
@@ -87,7 +115,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: darkgreen;
+    background-color: #142044;
 }
 .footer {
   position: absolute;
@@ -97,3 +125,10 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+th, dt{
+    color: #028a0f;
+}
+
+td, dd {
+    color: #a9a9a9;
+}
